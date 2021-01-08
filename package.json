@@ -12,7 +12,7 @@
     "url": "git+https://github.com/DonaldKellett/csnaketerm.git"
   },
   "author": "Donald Sebastian Leung",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/DonaldKellett/csnaketerm/issues"
   },
