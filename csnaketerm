@@ -27,6 +27,9 @@ The snake may collide with the following obstacles leading to its death:
 - Walls in the maze denoted by '#', or
 - Its own body
 
+Unless there is a wall, the snake will wrap around to the other end of the 80x24
+terminal screen once it reaches one end of the screen.
+
 While moving across the maze and avoiding obstacles, the player (i.e. you) gains
 1 point per tick where the snake is still alive. But within the maze, the snake
 may also consume food pellets denoted by '*' by colliding with them which gains
@@ -65,6 +68,7 @@ async function mainMenu() {
   console.log(`csnaketerm, v${VERSION}`)
   console.log('The classic Snake game, right in your terminal')
   console.log('Choose an action by pressing the corresponding key:\n')
+  console.log('  S: Start')
   console.log('  I: Instructions')
   console.log('  Q: Quit')
   process.stdin.resume()
@@ -75,9 +79,13 @@ async function mainMenu() {
       process.exit()
     }
     switch (str) {
+    case 's':
+    case 'S':
+      mazeSelectionMenu()
+      break
     case 'i':
     case 'I':
-      instructions()
+      instructionMenu()
       break
     case 'q':
     case 'Q':
@@ -91,11 +99,30 @@ async function mainMenu() {
   })
 }
 
-async function instructions() {
+async function instructionMenu() {
   console.clear()
   console.log('Instructions')
   console.log('='.repeat(80))
   console.log(INSTRUCTIONS)
+
+  console.log('\nPress any key to return to the main menu')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit()
+    }
+    mainMenu()
+  })
+}
+
+async function mazeSelectionMenu() {
+  console.clear()
+  console.log('Select a maze by pressing the corresponding key:\n')
+
+  // TODO: replace this stub with a proper implementation
+  console.log('  Sorry, there are currently no mazes available for selection.')
 
   console.log('\nPress any key to return to the main menu')
   process.stdin.resume()
