@@ -9,7 +9,7 @@ const timeout = util.promisify(setTimeout)
 const VERSION = '0.1.0'
 const USAGE = `Usage: csnaketerm [ -h | --help | -v | --version ]
 The classic Snake game, right in your terminal
-Invoke without options to play the game
+Invoke without options to play the game (best played on an 80x24 terminal)
 
 Options:
 
