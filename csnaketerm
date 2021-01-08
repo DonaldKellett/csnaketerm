@@ -1,4 +1,112 @@
 #!/usr/bin/env node
 'use strict'
 
-console.log('Hello World!') // TODO
+const fs = require('fs')
+const readline = require('readline')
+const util = require('util')
+const timeout = util.promisify(setTimeout)
+
+const VERSION = '0.1.0'
+const USAGE = `Usage: csnaketerm [ -h | --help | -v | --version ]
+The classic Snake game, right in your terminal
+Invoke without options to play the game
+
+Options:
+
+  -h, --help       Print this help message
+  -v, --version    Display the current version`
+const INSTRUCTIONS = `A snake is trapped in a maze whose body is denoted by '@', is initially 3 units
+long and moves 1 unit in one of the four cardinal directions per tick. Your
+mission is to guide the snake's movement to ensure that it survives for as long
+as possible. The snake's direction of movement can be controlled by the arrow
+keys; however, it can only perform 90 degree turns so it cannot make a U-turn in
+a single tick.
+
+The snake may collide with the following obstacles leading to its death:
+
+- Walls in the maze denoted by '#', or
+- Its own body
+
+While moving across the maze and avoiding obstacles, the player (i.e. you) gains
+1 point per tick where the snake is still alive. But within the maze, the snake
+may also consume food pellets denoted by '*' by colliding with them which gains
+the player 10 extra points per pellet. A side effect is that each pellet
+consumed increases the length of the snake by 1 unit, so it becomes increasingly
+difficult to prevent the snake from colliding with itself (or the walls of the
+maze) as more and more pellets are consumed.`
+
+if (process.argv.length > 3) {
+  console.log(USAGE)
+  process.exit(1)
+}
+
+if (process.argv.length === 3) {
+  switch (process.argv[2]) {
+  case '-h':
+  case '--help':
+    console.log(USAGE)
+    process.exit()
+  case '-v':
+  case '--version':
+    console.log(VERSION)
+    process.exit()
+  default:
+    console.log(USAGE)
+    process.exit(1)
+  }
+}
+
+readline.emitKeypressEvents(process.stdin)
+if (process.stdin.isTTY)
+  process.stdin.setRawMode(true)
+
+async function mainMenu() {
+  console.clear()
+  console.log(`csnaketerm, v${VERSION}`)
+  console.log('The classic Snake game, right in your terminal')
+  console.log('Choose an action by pressing the corresponding key:\n')
+  console.log('  I: Instructions')
+  console.log('  Q: Quit')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit()
+    }
+    switch (str) {
+    case 'i':
+    case 'I':
+      instructions()
+      break
+    case 'q':
+    case 'Q':
+      console.clear()
+      process.exit()
+    default:
+      console.log('\nInvalid action specified - please choose one of the actions listed above')
+      await timeout(1000)
+      mainMenu()
+    }
+  })
+}
+
+async function instructions() {
+  console.clear()
+  console.log('Instructions')
+  console.log('='.repeat(80))
+  console.log(INSTRUCTIONS)
+
+  console.log('\nPress any key to return to the main menu')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit()
+    }
+    mainMenu()
+  })
+}
+
+mainMenu()
