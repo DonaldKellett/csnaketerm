@@ -37,6 +37,7 @@ the player 10 extra points per pellet. A side effect is that each pellet
 consumed increases the length of the snake by 1 unit, so it becomes increasingly
 difficult to prevent the snake from colliding with itself (or the walls of the
 maze) as more and more pellets are consumed.`
+const INVALID_OPTION = '\nInvalid option specified - please choose one of the options listed above'
 
 if (process.argv.length > 3) {
   console.log(USAGE)
@@ -92,7 +93,7 @@ async function mainMenu() {
       console.clear()
       process.exit()
     default:
-      console.log('\nInvalid action specified - please choose one of the actions listed above')
+      console.log(INVALID_OPTION)
       await timeout(1000)
       mainMenu()
     }
@@ -121,9 +122,82 @@ async function mazeSelectionMenu() {
   console.clear()
   console.log('Select a maze by pressing the corresponding key:\n')
 
-  // TODO: replace this stub with a proper implementation
-  console.log('  Sorry, there are currently no mazes available for selection.')
+  console.log('  U. Unconfined')
+  console.log('  W. Walled')
+  console.log('  L. Labyrinth')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit()
+    }
+    switch (str) {
+    case 'u':
+    case 'U':
+      difficultySelectionMenu('Unconfined')
+      break
+    case 'w':
+    case 'W':
+      difficultySelectionMenu('Walled')
+      break
+    case 'l':
+    case 'L':
+      difficultySelectionMenu('Labyrinth')
+      break
+    default:
+      console.log(INVALID_OPTION)
+      await timeout(1000)
+      mazeSelectionMenu()
+    }
+  })
+}
 
+async function difficultySelectionMenu(maze) {
+  console.clear()
+  console.log('Select a difficulty by pressing the corresponding key:\n')
+
+  console.log('  E. Easy')
+  console.log('  M. Medium')
+  console.log('  H. Hard')
+  console.log('  I. Insane')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit()
+    }
+    switch (str) {
+    case 'e':
+    case 'E':
+      startGame(maze, 'Easy')
+      break
+    case 'm':
+    case 'M':
+      startGame(maze, 'Medium')
+      break
+    case 'h':
+    case 'H':
+      startGame(maze, 'Hard')
+      break
+    case 'i':
+    case 'I':
+      startGame(maze, 'Insane')
+      break
+    default:
+      console.log(INVALID_OPTION)
+      await timeout(1000)
+      difficultySelectionMenu(maze)
+    }
+  })
+}
+
+async function startGame(maze, difficulty) {
+  // TODO: replace stub with proper implementation
+  console.clear()
+  console.log('This game is a work in progress and is therefore not yet available. We apologize')
+  console.log('for any inconvenience caused.')
   console.log('\nPress any key to return to the main menu')
   process.stdin.resume()
   process.stdin.once('keypress', async (str, key) => {
