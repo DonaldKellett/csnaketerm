@@ -39,6 +39,9 @@ difficult to prevent the snake from colliding with itself (or the walls of the
 maze) as more and more pellets are consumed.`
 const INVALID_OPTION = '\nInvalid option specified - please choose one of the options listed above'
 const [ CELL_EMPTY, CELL_WALL, CELL_SNAKE, CELL_FOOD ] = [ 0, 1, 2, 3 ]
+const MAX_FOOD_PELLETS = 5
+const TERM_ROWS = 24
+const TERM_COLS = 80
 const UNCONFINED = `................................................................................
 ................................................................................
 ................................................................................
@@ -176,7 +179,7 @@ async function mainMenu() {
 async function instructionMenu() {
   console.clear()
   console.log('Instructions')
-  console.log('='.repeat(80))
+  console.log('='.repeat(TERM_COLS))
   console.log(INSTRUCTIONS)
 
   console.log('\nPress any key to return to the main menu')
@@ -276,44 +279,94 @@ function parseMaze(maze) {
         cell === '#' ?
           CELL_WALL :
           CELL_EMPTY))
-  if (result.length !== 24)
-    throw new Error('parseMaze(maze): Expected \'maze\' to have exactly 24 rows')
+  if (result.length !== TERM_ROWS)
+    throw new Error(`parseMaze(maze): Expected 'maze' to have exactly ${TERM_ROWS} rows`)
   for (let row of result)
-    if (row.length !== 80)
-      throw new Error('parseMaze(maze): Expected \'maze\' to have exactly 80 columns')
+    if (row.length !== TERM_COLS)
+      throw new Error(`parseMaze(maze): Expected 'maze' to have exactly ${TERM_COLS} columns`)
   return result
 }
 
+function placeSnakeInMaze(maze, snake) {
+  for (let cell of snake)
+    maze[cell.row][cell.col] = CELL_SNAKE
+}
+
+function tryPlaceNPelletsInMaze(maze, n) {
+  let emptyCells = []
+  for (let row = 0; row < TERM_ROWS; ++row)
+    for (let col = 0; col < TERM_COLS; ++col)
+      if (maze[row][col] === CELL_EMPTY)
+        emptyCells.push({ row, col })
+  emptyCells.sort((a, b) => 0.5 - Math.random())
+  emptyCells = emptyCells.slice(0, n)
+  for (let emptyCell of emptyCells)
+    maze[emptyCell.row][emptyCell.col] = CELL_FOOD
+}
+
+function displayMaze(maze) {
+  return maze.map(row =>
+    row.map(cell =>
+      cell === CELL_EMPTY ?
+        ' ' :
+      cell === CELL_WALL ?
+        '#' :
+      cell === CELL_SNAKE ?
+        '@' :
+        '*')
+      .join``)
+    .join`\n`
+}
+
 async function startGame(maze, difficulty) {
-  // TODO: replace stub with proper implementation
   console.clear()
   switch (maze) {
-  case 'Unconfined':
-    parseMaze(UNCONFINED)
-    break
-  case 'Walled':
-    parseMaze(WALLED)
-    break
-  case 'Labyrinth':
-    parseMaze(LABYRINTH)
-    break
-  default:
-    console.error('Unreachable statement reached!')
-    console.error('Please report this bug at https://github.com/DonaldKellett/csnaketerm/issues')
-    process.exit(1)
+    case 'Unconfined':
+      maze = parseMaze(UNCONFINED)
+      break
+    case 'Walled':
+      maze = parseMaze(WALLED)
+      break
+    case 'Labyrinth':
+      maze = parseMaze(LABYRINTH)
+      break
+    default:
+      console.error('startGame(maze, difficulty): Unreachable statement reached due to unexpected')
+      console.error('value of \'maze\'!')
+      console.error('This is a fatal error - please report this bug at')
+      console.error('https://github.com/DonaldKellett/csnaketerm/issues')
+      process.exit(1)
   }
-  console.log('This game is a work in progress and is therefore not yet available. We apologize')
-  console.log('for any inconvenience caused.')
-  console.log('\nPress any key to return to the main menu')
-  process.stdin.resume()
-  process.stdin.once('keypress', async (str, key) => {
-    process.stdin.pause()
-    if (key && key.ctrl && key.name === 'c') {
-      console.clear()
-      process.exit()
-    }
-    mainMenu()
-  })
+  let tickDurationMs
+  switch (difficulty) {
+    case 'Easy':
+      tickDurationMs = 500
+      break
+    case 'Medium':
+      tickDurationMs = 250
+      break
+    case 'Hard':
+      tickDurationMs = 125
+      break
+    case 'Insane':
+      tickDurationMs = 62.5
+      break
+    default:
+      console.error('startGame(maze, difficulty): Unreachable statement reached due to unexpected')
+      console.error('value of \'difficulty\'!')
+      console.error('This is a fatal error - please report this bug at')
+      console.error('https://github.com/DonaldKellett/csnaketerm/issues')
+      process.exit(1)
+  }
+  let snake = [
+    { row: 1, col: 3 },
+    { row: 1, col: 2 },
+    { row: 1, col: 1 }
+  ]
+  placeSnakeInMaze(maze, snake)
+  tryPlaceNPelletsInMaze(maze, MAX_FOOD_PELLETS)
+  process.stdout.write(displayMaze(maze))
+  // TODO
 }
 
 mainMenu()
