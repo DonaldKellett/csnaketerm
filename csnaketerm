@@ -377,7 +377,7 @@ async function startGame(maze, difficulty) {
   ]
   placeSnakeInMaze(maze, snake)
   tryPlaceNPelletsInMaze(maze, MAX_FOOD_PELLETS)
-  console.log(displayMaze(maze))
+  process.stdout.write(displayMaze(maze))
   let snakeDirPrev = DIR_RIGHT
   let snakeDirCur = DIR_RIGHT
   process.stdin.resume()
@@ -450,7 +450,7 @@ async function startGame(maze, difficulty) {
       snake.unshift(nextHeadPos)
       maze[nextHeadPos.row][nextHeadPos.col] = CELL_SNAKE
     }
-    console.log(displayMaze(maze))
+    process.stdout.write(displayMaze(maze))
     snakeDirPrev = snakeDirCur
     process.stdin.resume()
   }, tickDurationMs)
