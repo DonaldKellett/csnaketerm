@@ -16,7 +16,7 @@ Enjoy ;-)
 
 ## TODO
 
-- [ ] Write `man` pages
+- [x] Write `man` pages
 - [ ] Create packages for Ubuntu 20.04 LTS and Fedora 33
 - [ ] Officially release v0.1.0
 
@@ -26,9 +26,10 @@ Enjoy ;-)
 - [ ] Create packages for CentOS Stream and CentOS Linux 7
 - [ ] Create package for openSUSE
 - [ ] Add functionality to save per-user highscores
-- [ ] Create packages for Arch and downstream distributions(?)
-- [ ] Package for Windows 10(?)
-- [ ] Create Homebrew formula for macOS(?)
+- [ ] Create packages for Arch and downstream distributions (?)
+- [ ] Create Nix package for NixOS (?)
+- [ ] Package for Windows 10 (?)
+- [ ] Create Homebrew formula for macOS (?)
 - [ ] Create a server to track all-time highscores and add functionality to upload user scores to server (opt-in) (???)
 
 ## License
