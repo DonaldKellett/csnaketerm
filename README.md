@@ -2,17 +2,19 @@
 
 The classic Snake game, right in your terminal
 
-## Manually downloading and running the game
+## Manually downloading and installing the game
 
-Ensure `git` and `node` (ideally `10.x.x` or later) are installed, then
+1. Ensure `git` and `node` (`10.x.x` or later) are installed on your system
+1. `git clone https://github.com/DonaldKellett/csnaketerm.git`
+1. `cd csnaketerm`
+1. `make` - this actually does nothing, so feel free to skip this step
+1. `sudo make install`
 
-```bash
-$ git clone https://github.com/DonaldKellett/csnaketerm.git
-$ cd csnaketerm
-$ ./csnaketerm
-```
+You should then be able to run the game by invoking `csnaketerm` in your terminal.
 
-Enjoy ;-)
+To uninstall: `cd` to the root of this repo and run `sudo make uninstall`.
+
+If you are uncomfortable installing the game system-wide using `sudo`, skip the last two steps and invoke the game as `./csnaketerm` instead. Delete your clone of this repo once done.
 
 ## TODO
 
