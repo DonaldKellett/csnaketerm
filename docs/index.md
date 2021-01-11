@@ -14,4 +14,4 @@ Probably works on Linux Mint as well but untested
 
 ### Manual installation
 
-Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/README.md) for details.
+Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
