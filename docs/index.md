@@ -10,7 +10,7 @@
 
 deb installer: [csnaketerm_0.1.0-1_amd64.deb](./csnaketerm_0.1.0-1_amd64.deb)
 
-Thanks @XRFXLP for testing the deb installer on Linux Mint.
+Thanks [@XRFXLP](https://github.com/XRFXLP) for testing the deb installer on Linux Mint.
 
 ### Manual installation
 
