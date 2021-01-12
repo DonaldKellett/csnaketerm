@@ -20,7 +20,7 @@ If you are uncomfortable installing the game system-wide using `sudo`, skip the 
 
 - [x] Write `man` pages
 - [ ] Create packages for Ubuntu 20.04 LTS and Fedora 33
-- [ ] Officially release v0.1.0
+- [x] Officially release v0.1.0
 
 ## Wishlist
 
