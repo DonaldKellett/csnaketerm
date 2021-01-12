@@ -24,8 +24,8 @@ If you are uncomfortable installing the game system-wide using `sudo`, skip the 
 
 ## Wishlist
 
-- [ ] Create packages for latest stable Debian and its downstream distributions
-- [ ] Create packages for CentOS Stream and CentOS Linux 7
+- [x] Create packages for latest stable Debian and its downstream distributions
+- [ ] Create packages for CentOS Stream 8 and CentOS Linux 7
 - [ ] Create package for openSUSE
 - [ ] Add functionality to save per-user highscores
 - [ ] Create packages for Arch and downstream distributions (?)
