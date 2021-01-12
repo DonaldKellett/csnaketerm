@@ -12,6 +12,12 @@ deb installer: [csnaketerm_0.1.0-1_amd64.deb](./csnaketerm_0.1.0-1_amd64.deb)
 
 Thanks [@XRFXLP](https://github.com/XRFXLP) for testing the deb installer on Linux Mint.
 
+#### Manjaro
+
+Compressed tarball: [csnaketerm-0.1.0-1-x86_64.pkg.tar.zst](./csnaketerm-0.1.0-1-x86_64.pkg.tar.zst)
+
+Thanks [@Steffan153](https://github.com/Steffan153) for providing the package converted from the deb installer using `debtap` and testing it on Manjaro. Should work on Arch as well but yet to be tested.
+
 ### Manual installation
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
