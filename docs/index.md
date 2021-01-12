@@ -6,11 +6,11 @@
 
 ### Linux
 
-#### Debian 10, Ubuntu 18.04+
+#### Debian 10, Ubuntu 18.04+, Linux Mint 20
 
 deb installer: [csnaketerm_0.1.0-1_amd64.deb](./csnaketerm_0.1.0-1_amd64.deb)
 
-Probably works on Linux Mint as well but yet to be tested
+Thanks @XRFXLP for testing the deb installer on Linux Mint.
 
 ### Manual installation
 
