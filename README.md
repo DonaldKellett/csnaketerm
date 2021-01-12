@@ -16,19 +16,13 @@ To uninstall: `cd` to the root of this repo and run `sudo make uninstall`.
 
 If you are uncomfortable installing the game system-wide using `sudo`, skip the last two steps and invoke the game as `./csnaketerm` instead. Delete your clone of this repo once done.
 
-## TODO
-
-- [x] Write `man` pages
-- [ ] Create packages for Ubuntu 20.04 LTS and Fedora 33
-- [x] Officially release v0.1.0
-
 ## Wishlist
 
 - [x] Create packages for latest stable Debian and its downstream distributions
-- [ ] Create packages for CentOS Stream 8 and CentOS Linux 7
+- [x] Create packages for CentOS Stream 8 ~~and CentOS Linux 7~~
 - [ ] Create package for openSUSE
 - [ ] Add functionality to save per-user highscores
-- [ ] Create packages for Arch and downstream distributions (?)
+- [x] Create packages for Arch and downstream distributions (?)
 - [ ] Create Nix package for NixOS (?)
 - [ ] Package for Windows 10 (?)
 - [ ] Create Homebrew formula for macOS (?)
