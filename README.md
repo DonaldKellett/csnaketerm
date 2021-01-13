@@ -20,7 +20,7 @@ If you are uncomfortable installing the game system-wide using `sudo`, skip the 
 
 - [x] Create packages for latest stable Debian and its downstream distributions
 - [x] Create packages for CentOS Stream 8 ~~and CentOS Linux 7~~
-- [ ] Create package for openSUSE
+- [x] Create package for openSUSE
 - [ ] Add functionality to save per-user highscores
 - [x] Create packages for Arch and downstream distributions (?)
 - [ ] Create Nix package for NixOS (?)
