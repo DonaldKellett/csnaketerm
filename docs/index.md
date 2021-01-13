@@ -12,11 +12,13 @@ deb installer: [csnaketerm_0.1.0-1_amd64.deb](./csnaketerm_0.1.0-1_amd64.deb)
 
 Thanks [@XRFXLP](https://github.com/XRFXLP) for testing the deb installer on Linux Mint.
 
-#### Fedora 32+, CentOS Stream 8, CentOS Linux 8
+#### Fedora 32+, CentOS Stream 8, CentOS Linux 8, openSUSE Leap 15.2
 
 rpm installer: [csnaketerm-0.1.0-1.fc33.noarch.rpm](./csnaketerm-0.1.0-1.fc33.noarch.rpm)
 
 Probably works on RHEL 8 as well but yet to be tested.
+
+Note for openSUSE users: `zypper` may warn you that the installer is unsigned. Choose `i`gnore if you trust the installer.
 
 #### Manjaro
 
