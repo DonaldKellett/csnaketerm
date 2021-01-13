@@ -12,7 +12,7 @@ deb installer: [csnaketerm_0.1.0-1_amd64.deb](./csnaketerm_0.1.0-1_amd64.deb)
 
 Thanks [@XRFXLP](https://github.com/XRFXLP) for testing the deb installer on Linux Mint.
 
-#### Fedora 32+, CentOS Stream 8, CentOS Linux 8, openSUSE Leap 15.2
+#### Fedora 32+, CentOS Stream 8, CentOS Linux 8, openSUSE Leap 15.2, openSUSE Tumbleweed
 
 rpm installer: [csnaketerm-0.1.0-1.fc33.noarch.rpm](./csnaketerm-0.1.0-1.fc33.noarch.rpm)
 
