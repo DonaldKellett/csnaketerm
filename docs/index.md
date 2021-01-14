@@ -18,6 +18,12 @@ rpm installer: [csnaketerm-0.2.0-1.el8.noarch.rpm](./csnaketerm-0.2.0-1.el8.noar
 
 Note for openSUSE users: `zypper` may warn you that the installer is unsigned. If you trust the installer, proceed with `i`gnore.
 
+#### Arch, Manjaro
+
+pkg installer: [csnaketerm-0.2.0-1-x86\_64.pkg.tar.zst](./csnaketerm-0.2.0-1-x86_64.pkg.tar.zst)
+
+Note that this installer was converted from the deb installer above using `debtap`.
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
