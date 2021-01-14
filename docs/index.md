@@ -6,6 +6,6 @@ The current version (as of 14/01/2021) is `0.2.0`.
 
 ## Installation
 
-### Manual installation
+### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
