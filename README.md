@@ -2,31 +2,34 @@
 
 The classic Snake game, right in your terminal
 
-## Manually downloading and installing the game
+## Installation
 
-1. Ensure `git` and `node` (`10.x.x` or later) are installed on your system
+Please see the [project page](https://donaldkellett.github.io/csnaketerm) for details.
+
+## Installing and running the game from source
+
+Note that this option does not install the corresponding `man` pages for this game.
+
+### On Unix systems
+
+1. Ensure `git` and `node` are installed on your system. This game is known to work with Node 10 and later so older versions of Node may or may not work.
 1. `git clone https://github.com/DonaldKellett/csnaketerm.git`
 1. `cd csnaketerm`
-1. `make` - this actually does nothing, so feel free to skip this step
 1. `sudo make install`
 
 You should then be able to run the game by invoking `csnaketerm` in your terminal.
 
 To uninstall: `cd` to the root of this repo and run `sudo make uninstall`.
 
-If you are uncomfortable installing the game system-wide using `sudo`, skip the last two steps and invoke the game as `./csnaketerm` instead. Delete your clone of this repo once done.
+If you are uncomfortable installing the game system-wide using `sudo`, skip the last step and invoke the game as `./csnaketerm` instead. Delete your clone of this repo once done.
 
-## Wishlist
+### On Windows
 
-- [x] Create packages for latest stable Debian and its downstream distributions
-- [x] Create packages for CentOS Stream 8 ~~and CentOS Linux 7~~
-- [x] Create package for openSUSE
-- [ ] Add functionality to save per-user highscores
-- [x] Create packages for Arch and downstream distributions (?)
-- [ ] Create Nix package for NixOS (?)
-- [ ] Package for Windows 10 (?)
-- [ ] Create Homebrew formula for macOS (?)
-- [ ] Create a server to track all-time highscores and add functionality to upload user scores to server (opt-in) (???)
+TODO
+
+## Contributing
+
+Feel free to open issues and pull requests as you see fit, though the final decision on addressing which issues and accepting which pull requests is reserved for the author of this game. Of course, if there are issues or pull requests you'd like to incorporate that end up rejected by the author, you are free to fork this project and create your own variant of this game subject to the terms of the GPL (see the License section for details).
 
 ## License
 

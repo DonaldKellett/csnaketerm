@@ -6,8 +6,9 @@ const readline = require('readline')
 const util = require('util')
 const timeout = util.promisify(setTimeout)
 const mod = (a, b) => ((a % b) + b) % b
+const path = require('path')
 
-const VERSION = '0.1.0'
+const VERSION = '0.2.0'
 const USAGE = `Usage: csnaketerm [ -h | --help | -v | --version ]
 The classic Snake game, right in your terminal
 Invoke without options to play the game (best played on an 80x24 terminal)
@@ -116,6 +117,7 @@ const LABYRINTH = `#############################################################
 #                    #  #  #   #    #     #      #       #        #            #
 #                       #      #          #              #                     #
 ############################################################################  ##`
+const HIGH_SCORES_FILE_FORMAT = /^((0|[1-9]\d*)(\,(0|[1-9]\d*)){11})$/
 
 if (process.argv.length > 3) {
   console.log(USAGE)
@@ -142,6 +144,75 @@ readline.emitKeypressEvents(process.stdin)
 if (process.stdin.isTTY)
   process.stdin.setRawMode(true)
 
+let highScores
+let highScoresFilePath
+
+async function initialize() {
+  if (typeof process.env.HOME !== 'string') {
+    console.error('Fatal error: Expected environment variable HOME to be defined')
+    process.exit(1)
+  }
+  if (!path.isAbsolute(process.env.HOME)) {
+    console.error('Fatal error: Expected environment variable HOME to be an absolute path')
+    process.exit(1)
+  }
+  highScoresFilePath = path.join(process.env.HOME, '.csnaketerm')
+  if (!fs.existsSync(highScoresFilePath)) {
+    highScores = {
+      'Unconfined': {
+        'Easy': 0,
+	'Medium': 0,
+	'Hard': 0,
+	'Insane': 0
+      },
+      'Walled': {
+        'Easy': 0,
+	'Medium': 0,
+	'Hard': 0,
+	'Insane': 0
+      },
+      'Labyrinth': {
+        'Easy': 0,
+	'Medium': 0,
+	'Hard': 0,
+	'Insane': 0
+      }
+    }
+  } else {
+    try {
+      highScores = await fs.promises.readFile(highScoresFilePath)
+      highScores = highScores.toString().trim()
+      if (!HIGH_SCORES_FILE_FORMAT.test(highScores))
+        throw new Error(`Fatal error: The user data located at ${highScoresFilePath} appears to be corrupted. Deleting the file and restarting the game is the simplest solution, but note that you will lose all in-game progress.`)
+      highScores = highScores.split`,`.map(n => +n)
+      highScores = {
+        'Unconfined': {
+          'Easy': highScores[0],
+          'Medium': highScores[1],
+          'Hard': highScores[2],
+          'Insane': highScores[3]
+	},
+        'Walled': {
+          'Easy': highScores[4],
+          'Medium': highScores[5],
+          'Hard': highScores[6],
+          'Insane': highScores[7]
+	},
+	'Labyrinth': {
+          'Easy': highScores[8],
+          'Medium': highScores[9],
+          'Hard': highScores[10],
+          'Insane': highScores[11]
+	}
+      }
+    } catch (err) {
+      console.error(err)
+      process.exit(1)
+    }
+  }
+  mainMenu()
+}
+
 async function mainMenu() {
   console.clear()
   console.log(`csnaketerm, v${VERSION}`)
@@ -149,13 +220,14 @@ async function mainMenu() {
   console.log('Choose an action by pressing the corresponding key:\n')
   console.log('  S: Start')
   console.log('  I: Instructions')
+  console.log('  H: High Scores')
   console.log('  Q: Quit')
   process.stdin.resume()
   process.stdin.once('keypress', async (str, key) => {
     process.stdin.pause()
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     switch (str) {
     case 's':
@@ -166,9 +238,19 @@ async function mainMenu() {
     case 'I':
       instructionMenu()
       break
+    case 'h':
+    case 'H':
+      highScoresMenu()
+      break
     case 'q':
     case 'Q':
       console.clear()
+      try {
+        await fs.promises.writeFile(highScoresFilePath, `${highScores['Unconfined']['Easy']},${highScores['Unconfined']['Medium']},${highScores['Unconfined']['Hard']},${highScores['Unconfined']['Insane']},${highScores['Walled']['Easy']},${highScores['Walled']['Medium']},${highScores['Walled']['Hard']},${highScores['Walled']['Insane']},${highScores['Labyrinth']['Easy']},${highScores['Labyrinth']['Medium']},${highScores['Labyrinth']['Hard']},${highScores['Labyrinth']['Insane']}`)
+      } catch (err) {
+        console.error(err)
+	process.exit(1)
+      }
       process.exit()
     default:
       console.log(INVALID_OPTION)
@@ -190,7 +272,7 @@ async function instructionMenu() {
     process.stdin.pause()
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     mainMenu()
   })
@@ -208,7 +290,7 @@ async function mazeSelectionMenu() {
     process.stdin.pause()
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     switch (str) {
     case 'u':
@@ -231,6 +313,27 @@ async function mazeSelectionMenu() {
   })
 }
 
+async function highScoresMenu() {
+  console.clear()
+  console.log('High Scores')
+  console.log('='.repeat(TERM_COLS))
+  for (let maze in highScores) {
+    console.log(maze)
+    for (let difficulty in highScores[maze])
+      console.log(`  ${difficulty}: ${highScores[maze][difficulty]}`)
+  }
+  console.log('\nPress any key to return to the main menu')
+  process.stdin.resume()
+  process.stdin.once('keypress', async (str, key) => {
+    process.stdin.pause()
+    if (key && key.ctrl && key.name === 'c') {
+      console.clear()
+      process.exit(1)
+    }
+    mainMenu()
+  })
+}
+
 async function difficultySelectionMenu(maze) {
   console.clear()
   console.log('Select a difficulty by pressing the corresponding key:\n')
@@ -244,7 +347,7 @@ async function difficultySelectionMenu(maze) {
     process.stdin.pause()
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     switch (str) {
     case 'e':
@@ -338,6 +441,7 @@ function isPellet(maze, cell) {
 
 async function startGame(maze, difficulty) {
   console.clear()
+  let mazeStr = maze
   switch (maze) {
     case 'Unconfined':
       maze = parseMaze(UNCONFINED)
@@ -384,7 +488,7 @@ async function startGame(maze, difficulty) {
   process.stdin.on('keypress', async (str, key) => {
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     switch (snakeDirPrev) {
     case DIR_UP:
@@ -436,7 +540,7 @@ async function startGame(maze, difficulty) {
     if (!isPassable(maze, nextHeadPos)) {
       process.stdin.removeAllListeners('keypress')
       clearInterval(refreshInterval)
-      gameOverScreen(score)
+      gameOverScreen(mazeStr, difficulty, score)
       return
     }
     if (isPellet(maze, nextHeadPos)) {
@@ -456,11 +560,18 @@ async function startGame(maze, difficulty) {
   }, tickDurationMs)
 }
 
-async function gameOverScreen(score) {
+async function gameOverScreen(maze, difficulty, score) {
   console.clear()
   console.log('Game Over')
   console.log('='.repeat(TERM_COLS))
+  let isNewHighScore = score > highScores[maze][difficulty]
+  if (isNewHighScore)
+    console.log('You achieved a new high score!')
   console.log(`You scored: ${score}`)
+  if (!isNewHighScore)
+    console.log(`Your high score: ${highScores[maze][difficulty]}`)
+  if (isNewHighScore)
+    highScores[maze][difficulty] = score
 
   console.log('\nPress any key to return to the main menu')
   process.stdin.resume()
@@ -468,10 +579,10 @@ async function gameOverScreen(score) {
     process.stdin.pause()
     if (key && key.ctrl && key.name === 'c') {
       console.clear()
-      process.exit()
+      process.exit(1)
     }
     mainMenu()
   })
 }
 
-mainMenu()
+initialize()
