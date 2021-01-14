@@ -6,8 +6,6 @@ The current version (as of 14/01/2021) is `0.2.0`.
 
 ## Installation
 
-TODO
-
 ### Manual installation
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
