@@ -6,6 +6,12 @@ The current version (as of 14/01/2021) is `0.2.0`.
 
 ## Installation
 
+### Linux
+
+#### Debian 10, Ubuntu 18.04+, Linux Mint 20
+
+deb installer: [csnaketerm\_0.2.0-1\_amd64.deb](./csnaketerm_0.2.0-1_amd64.deb)
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
