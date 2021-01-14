@@ -24,6 +24,12 @@ pkg installer: [csnaketerm-0.2.0-1-x86\_64.pkg.tar.zst](./csnaketerm-0.2.0-1-x86
 
 Note that this installer was converted from the deb installer above using `debtap`.
 
+#### Using Flatpak
+
+If neither of the installers is applicable to your distro or you would not like to use them due to various concerns, a Flatpak bundle is available: [csnaketerm-0.2.0.flatpak](./csnaketerm-0.2.0.flatpak)
+
+Depending on your distro, you may need to [set up Flatpak](https://flatpak.org/setup/) first. Also note that as of 15/01/2021, the Flatpak version of this game is unable to persist high scores between game runs. In addition, no man page is available.
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
