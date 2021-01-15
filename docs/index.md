@@ -8,6 +8,17 @@ The current version (as of 14/01/2021) is `0.2.0`.
 
 ### Linux
 
+#### Ubuntu 20.04
+
+`csnaketerm` is available in a PPA: `donaldsebleung/games`. First add the PPA and update repository metadata:
+
+```bash
+$ sudo add-apt-repository ppa:donaldsebleung/games
+$ sudo apt update
+```
+
+Then `sudo apt install csnaketerm` and you're done!
+
 #### Debian 10, Ubuntu 18.04+, Linux Mint 20
 
 deb installer: [csnaketerm\_0.2.0-1\_amd64.deb](./csnaketerm_0.2.0-1_amd64.deb)
