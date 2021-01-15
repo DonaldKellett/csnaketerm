@@ -32,6 +32,10 @@ Depending on your distro, you may need to [set up Flatpak](https://flatpak.org/s
 
 Note: after installing from the Software Center, if the Launch button is unresponsive then you may need to open up a terminal and type `flatpak run org.flatpak.ClassicSnakeTerminal` instead to launch the game.
 
+### macOS and other Unix
+
+Ensure you have `npm >= 5.2` installed, then follow the section "With `npm`" below.
+
 ### With `npm`
 
 ```bash
