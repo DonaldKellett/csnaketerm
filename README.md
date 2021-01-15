@@ -9,10 +9,10 @@ Please see the [project page](https://donaldkellett.github.io/csnaketerm) for de
 ### With `npm`
 
 ```bash
-$ npm install csnaketerm
+$ npm install -g csnaketerm
 ```
 
-Then simply invoke `npx csnaketerm` to run the game. Note that the `npm` version of this game does not come with man pages preinstalled.
+Then simply invoke `csnaketerm` to run the game. Note that the `npm` version of this game does not come with man pages preinstalled.
 
 Windows users: since the game was written with POSIX in mind, it may not work as intended natively on your system even when run under Cygwin. In that case, consider enabling WSL2, installing and running the game on Ubuntu (or any Linux distro of your choice available through the Microsoft store) instead.
 
