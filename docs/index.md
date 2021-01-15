@@ -30,6 +30,8 @@ If neither of the installers is applicable to your distro or you would not like 
 
 Depending on your distro, you may need to [set up Flatpak](https://flatpak.org/setup/) first. Also note that as of 15/01/2021, the Flatpak version of this game is unable to persist high scores between game runs. In addition, no man page is available.
 
+Note: after installing from the Software Center, if the Launch button is unresponsive then you may need to open up a terminal and type `flatpak run org.flatpak.ClassicSnakeTerminal` instead to launch the game.
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
