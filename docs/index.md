@@ -32,6 +32,16 @@ Depending on your distro, you may need to [set up Flatpak](https://flatpak.org/s
 
 Note: after installing from the Software Center, if the Launch button is unresponsive then you may need to open up a terminal and type `flatpak run org.flatpak.ClassicSnakeTerminal` instead to launch the game.
 
+### With `npm`
+
+```bash
+$ npm install csnaketerm
+```
+
+Then simply invoke `npx csnaketerm` to run the game. Note that the `npm` version of this game does not come with man pages preinstalled.
+
+Windows users: since the game was written with POSIX in mind, it may not work as intended natively on your system. In that case, consider enabling WSL2, installing and running the game on Ubuntu (or any Linux distro of your choice available through the Microsoft store) instead.
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
