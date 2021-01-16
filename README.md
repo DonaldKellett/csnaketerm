@@ -35,7 +35,16 @@ If you are uncomfortable installing the game system-wide using `sudo`, skip the 
 
 ### On Windows
 
-TODO
+[Install WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (_not_ WSL 1!) and install one of the Linux distributions available from the Microsoft store (Ubuntu 20.04 LTS recommended for newcomers to Linux), then follow the build instructions for Unix systems outlined above. If you chose Ubuntu 20.04 LTS as your distribution, installing the dependencies (`git`, `node`) required for running `csnaketerm` is as simple as running the following commands in your Ubuntu terminal (_not_ your Windows cmd/PowerShell prompt!):
+
+```bash
+$ sudo apt update
+$ sudo apt install git nodejs
+```
+
+Other distributions may require slightly different commands which will not be covered here.
+
+Note that this solution only works for sufficiently recent builds of Windows 10. If your Windows 10 is terribly out of date or you are using an older version of Windows (which are no longer supported anyway), you must upgrade to Windows 10 before following the instructions here.
 
 ## Contributing
 
