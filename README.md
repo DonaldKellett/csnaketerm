@@ -6,13 +6,21 @@ The classic Snake game, right in your terminal
 
 Please see the [project page](https://donaldkellett.github.io/csnaketerm) for details.
 
-### With `npm`
+### With `npm >= 5.2`
 
 ```bash
 $ npm install -g csnaketerm
 ```
 
+Depending on how `npm` is installed in your system, you may have to run the above command with `sudo` in order for the installation to work properly.
+
 Then simply invoke `csnaketerm` to run the game. Note that the `npm` version of this game does not come with man pages preinstalled.
+
+To uninstall (run with `sudo` if necessary):
+
+```bash
+$ npm uninstall -g csnaketerm
+```
 
 Windows users: since the game was written with POSIX in mind, it may not work as intended natively on your system even when run under Cygwin. In that case, consider enabling WSL2, installing and running the game on Ubuntu (or any Linux distro of your choice available through the Microsoft store) instead.
 
