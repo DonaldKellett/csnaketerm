@@ -66,7 +66,7 @@ $ sudo apt install npm
 
 Other distributions may require slightly different commands which will not be covered here.
 
-Note that these instructions will only work on sufficiently recent builds of Windows 10. If your Windows 10 is terribly out of date or you are using an older version of Windows (which is no longer supported anyway), you must upgrade to Windows 10 before following the instructions here.
+Note that these instructions will only work on sufficiently recent builds of Windows 10. If your Windows 10 is terribly out of date or you are using an older version of Windows (which are no longer supported anyway), you must upgrade to Windows 10 before following the instructions here.
 
 ### With `npm`
 
