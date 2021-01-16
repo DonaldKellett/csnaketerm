@@ -53,6 +53,21 @@ Note: the Snap version of this game does not come with man pages preinstalled.
 
 Ensure you have `npm >= 5.2` installed, then follow the section "With `npm`" below.
 
+### Windows
+
+[Install WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (_not_ WSL 1!) and install one of the Linux distributions available from the Microsoft store (Ubuntu 20.04 LTS recommended for newcomers to Linux), then ensure `npm` is installed _within your Linux distribution of choice_ (not on your base Windows system). After that, follow the instructions under the "With `npm`" header below.
+
+If you chose Ubuntu 20.04 LTS as your distribution then installing `npm` in Ubuntu is as simple as entering the following commands in the Ubuntu terminal (_not_ on your Windows cmd/PowerShell prompt!):
+
+```bash
+$ sudo apt update
+$ sudo apt install npm
+```
+
+Other distributions may require slightly different commands which will not be covered here.
+
+Note that these instructions will only work on sufficiently recent builds of Windows 10. If your Windows 10 is terribly out of date or you are using an older version of Windows (which is no longer supported anyway), you must upgrade to Windows 10 before following the instructions here.
+
 ### With `npm`
 
 ```bash
