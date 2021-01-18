@@ -47,6 +47,8 @@ Note: after installing from the Software Center, if the Launch button is unrespo
 
 `csnaketerm` is now available in the Snap store as [Classic Snake Terminal](https://snapcraft.io/csnaketerm).
 
+Note: the Snap version of this game does not come with man pages preinstalled.
+
 ### macOS and other Unix
 
 Ensure you have `npm >= 5.2` installed, then follow the section "With `npm >= 5.2`" below.
