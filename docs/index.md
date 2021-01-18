@@ -45,9 +45,7 @@ Note: after installing from the Software Center, if the Launch button is unrespo
 
 #### With Snap
 
-Alternatively, if your distro has better support for Snaps, `csnaketerm` is available in the Snap store under the same name. Enter the Snap store, search for "csnaketerm" / "Classic Snake Terminal" and install, or run `sudo snap install csnaketerm` in a terminal. Invoke `csnaketerm` to play the game.
-
-Note: the Snap version of this game does not come with man pages preinstalled.
+`csnaketerm` is now available in the Snap store as [Classic Snake Terminal](https://snapcraft.io/csnaketerm).
 
 ### macOS and other Unix
 
