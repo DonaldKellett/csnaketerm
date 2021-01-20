@@ -37,11 +37,9 @@ Note that this installer was converted from the deb installer above using `debta
 
 #### With Flatpak
 
-If neither of the installers is applicable to your distro or you would not like to use them due to various concerns, a Flatpak bundle is available: [csnaketerm-0.2.0.flatpak](./csnaketerm-0.2.0.flatpak)
+Flatpak bundle: [csnaketerm-0.2.0.flatpak](./csnaketerm-0.2.0.flatpak)
 
-Depending on your distro, you may need to [set up Flatpak](https://flatpak.org/setup/) first. Also note that as of 15/01/2021, the Flatpak version of this game is unable to persist high scores between game runs. In addition, no man page is available.
-
-Note: after installing from the Software Center, if the Launch button is unresponsive then you may need to open up a terminal and type `flatpak run org.flatpak.ClassicSnakeTerminal` instead to launch the game.
+Note: the Flatpak version of this game does not come with man pages preinstalled.
 
 #### With Snap
 
