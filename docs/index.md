@@ -84,6 +84,10 @@ $ npm uninstall -g csnaketerm
 
 Windows users: since the game was written with POSIX in mind, it may not work as intended natively on your system even when run under Cygwin. In that case, consider enabling WSL2, installing and running the game on Ubuntu (or any Linux distro of your choice available through the Microsoft store) instead.
 
+### With Docker
+
+A [Docker image](https://hub.docker.com/repository/docker/donaldsebleung/csnaketerm) is now available.
+
 ### Installing and running the game from source
 
 Please refer to the [README](https://github.com/DonaldKellett/csnaketerm/blob/main/README.md) for details.
