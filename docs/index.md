@@ -86,7 +86,7 @@ Windows users: since the game was written with POSIX in mind, it may not work as
 
 ### With Docker
 
-A [Docker image](https://hub.docker.com/repository/docker/donaldsebleung/csnaketerm) is now available.
+A Docker image [`donaldsebleung/csnaketerm:0.2.0`](https://hub.docker.com/repository/docker/donaldsebleung/csnaketerm) is now available.
 
 ### Installing and running the game from source
 
