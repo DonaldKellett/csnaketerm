@@ -1,7 +1,3 @@
-The classic Snake game, right in your terminal
-
-## About
-
 The classic Snake game, right in your terminal. Play the game in an 80x24 terminal for an optimal experience, though larger terminal dimensions will also do.
 
 ## Installing
@@ -72,7 +68,7 @@ $ man ./csnaketerm.6
 
 ### For Windows users
 
-Windows is not natively supported; you will need to set up a Linux virtual machine (VM) using [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about) or otherwise, then follow the instructions for Linux above in the VM. If in doubt, [get Ubuntu from the Microsoft store](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
+Windows is not natively supported; you will need to set up a Linux virtual machine (VM) using [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about) or otherwise, then follow the instructions for Linux above in the VM. If in doubt, [get Ubuntu 20.04 LTS from the Microsoft store](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71#activetab=pivot:overviewtab).
 
 ## Contributing
 
