@@ -41,7 +41,7 @@ $ sudo dnf copr enable donaldsebleung/games
 $ sudo dnf update && sudo dnf install csnaketerm
 ```
 
-## From source
+### From source
 
 Applicable to Unix and Linux
 
