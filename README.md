@@ -1,62 +1,82 @@
-# csnaketerm
-
 The classic Snake game, right in your terminal
 
-## Installation
+## About
 
-Please see the [project page](https://donaldkellett.github.io/csnaketerm) for details.
+The classic Snake game, right in your terminal. Play the game in an 80x24 terminal for an optimal experience, though larger terminal dimensions will also do.
 
-### With `npm >= 5.2`
+## Installing
 
-```bash
-$ npm install -g csnaketerm
-```
+### From the Snap store
 
-Depending on how `npm` is installed in your system, you may have to run the above command with `sudo` in order for the installation to work properly.
+Applicable to Ubuntu Linux and many other mainstream distributions
 
-Then simply invoke `csnaketerm` to run the game. Note that the `npm` version of this game does not come with man pages preinstalled.
+[Classic Snake Terminal in the Snap store](https://snapcraft.io/csnaketerm)
 
-To uninstall (run with `sudo` if necessary):
+### From ppa:donaldsebleung/games
 
-```bash
-$ npm uninstall -g csnaketerm
-```
+Applicable to:
 
-Windows users: since the game was written with POSIX in mind, it may not work as intended natively on your system even when run under Cygwin. In that case, consider enabling WSL2, installing and running the game on Ubuntu (or any Linux distro of your choice available through the Microsoft store) instead.
-
-## Installing and running the game from source
-
-Note that this option does not install the corresponding `man` pages for this game.
-
-### On Unix systems
-
-1. Ensure `git` and `node` are installed on your system. This game is known to work with Node 10 and later so older versions of Node may or may not work.
-1. `git clone https://github.com/DonaldKellett/csnaketerm.git`
-1. `cd csnaketerm`
-1. `sudo make install`
-
-You should then be able to run the game by invoking `csnaketerm` in your terminal.
-
-To uninstall: `cd` to the root of this repo and run `sudo make uninstall`.
-
-If you are uncomfortable installing the game system-wide using `sudo`, skip the last step and invoke the game as `./csnaketerm` instead. Delete your clone of this repo once done.
-
-### On Windows
-
-[Install WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (_not_ WSL 1!) and install one of the Linux distributions available from the Microsoft store (Ubuntu 20.04 LTS recommended for newcomers to Linux), then follow the build instructions for Unix systems outlined above. If you chose Ubuntu 20.04 LTS as your distribution, installing the dependencies (`git`, `node`) required for running `csnaketerm` is as simple as running the following commands in your Ubuntu terminal (_not_ your Windows cmd/PowerShell prompt!):
+- Ubuntu 20.04 LTS (Focal Fossa)
+- Ubuntu 20.10 (Groovy Gorilla)
+- Ubuntu 21.04 (Hirsute Hippo)
+- Ubuntu 21.10 (Impish Idri)
 
 ```bash
-$ sudo apt update
-$ sudo apt install git nodejs
+$ sudo add-apt-repository ppa:donaldsebleung/games
+$ sudo apt update && sudo apt install csnaketerm
 ```
 
-Other distributions may require slightly different commands which will not be covered here.
+### From donaldsebleung/games in Fedora COPR
 
-Note that this solution only works for sufficiently recent builds of Windows 10. If your Windows 10 is terribly out of date or you are using an older version of Windows (which are no longer supported anyway), you must upgrade to Windows 10 before following the instructions here.
+Applicable to:
+
+- CentOS Stream 8
+- EPEL for CentOS 8
+- Fedora 33
+- Fedora 34
+- openSUSE Leap 15.2
+- openSUSE Leap 15.3
+- openSUSE Tumbleweed
+
+openSUSE users: you may need to first install `dnf` and `dnf-plugins-core`, or `yum` and `yum-plugin-copr`
+
+```bash
+$ sudo dnf copr enable donaldsebleung/games
+$ sudo dnf update && sudo dnf install csnaketerm
+```
+
+## From source
+
+Applicable to Unix and Linux
+
+Ensure you have the following installed:
+
+- Git
+- Node.js 10 or later
+
+```bash
+$ git clone https://github.com/DonaldKellett/csnaketerm.git && cd csnaketerm
+```
+
+Invoke the top-level executable `csnaketerm` without arguments to play the game:
+
+```bash
+$ ./csnaketerm
+```
+
+A man page `csnaketerm.6` is also provided for your reference:
+
+```bash
+$ man ./csnaketerm.6
+```
+
+### For Windows users
+
+Windows is not natively supported; you will need to set up a Linux virtual machine (VM) using [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about) or otherwise, then follow the instructions for Linux above in the VM. If in doubt, [get Ubuntu from the Microsoft store](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
 
 ## Contributing
 
-Feel free to open issues and pull requests as you see fit, though the final decision on addressing which issues and accepting which pull requests is reserved for the author of this game. Of course, if there are issues or pull requests you'd like to incorporate that end up rejected by the author, you are free to fork this project and create your own variant of this game subject to the terms of the GPL (see the License section for details).
+This project is not accepting contributions but feel free to fork this project and develop your own fork subject to the terms of the GPL (see below for details).
 
 ## License
 
