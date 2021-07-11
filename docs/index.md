@@ -2,6 +2,17 @@ The classic Snake game, right in your terminal. Play the game in an 80x24 termin
 
 ## Installing
 
+### From DonaldKellett/games in Homebrew
+
+Applicable to macOS and Linux
+
+macOS users: please [help test the formula](https://github.com/DonaldKellett/homebrew-games/issues/1) if possible, thanks!
+
+```bash
+$ brew tap DonaldKellett/games
+$ brew install csnaketerm
+```
+
 ### From the Snap store
 
 Applicable to Ubuntu Linux and many other mainstream distributions
